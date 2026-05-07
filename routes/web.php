@@ -32,14 +32,12 @@ Route::prefix('home')->group(function(){
 
     Route::get('/doctors/search',[DoctorController::class,'search'])->name('doctors.search');
     Route::get('/doctors/{doctor}/show',[DoctorController::class,'showSingleDr'])->name('doctors.show');
-    // Route::get('/appointments/register/{doctor}/{time}',[AppointmentController::class,''])->name('appointments.register');
     Route::get('/appointments/register',[DoctorController::class,'showSingleDr'])->name('appointments.register');
     Route::get('/contact',[ContactController::class,'index'])->name('contact');
     Route::post('/contact/send',[ContactController::class,'sendMail'])->name('contact.send');
 });
 
 // Authenticated user routes
-// Member 5: User Bookings Page
 Route::middleware(['auth'])->group(function () {
     Route::get('/my-appointments', [AppointmentController::class, 'index'])->name('appointments.index');
     Route::get('/booking/{id}/{clinic_id}/{offset}', [AppointmentController::class, 'showBookingForm'])
@@ -49,7 +47,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/appointments/confirm/{slot}', [AppointmentController::class, 'confirmBooking'])
         ->name('appointments.confirm');
 });
-// Member 6: Admin Panel for Doctors
+// Admin Panel for Doctors
 Route::prefix('admin')->group(function () {
     Route::get('/doctors', [AdminController::class,'index'])->name('admin.doctors.index');
     Route::get('/doctors/create', [AdminController::class, 'create'])->name('admin.doctors.create');
@@ -58,9 +56,3 @@ Route::prefix('admin')->group(function () {
     Route::post('/doctors/{doctor}/update', [AdminController::class, 'update'])->name('admin.doctors.update');
     Route::delete('/doctors/{doctor}/delete', [AdminController::class, 'destroy'])->name('admin.doctors.delete');
 });
-
-
-
-
-// require __DIR__.'\..\auth.php';
-
