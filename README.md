@@ -46,7 +46,7 @@ A multi-role healthcare appointment booking platform built during the National T
 
 1. **Clone your repository copy:**
    ```bash
-   git clone [https://github.com/mohamed-ahamed-mohamed-2026/NTI-Final-Project.git](https://github.com/mohamed-ahamed-mohamed-2026/NTI-Final-Project.git)
+   git clone https://github.com/mohamed-ahamed-mohamed-2026/NTI-Final-Project.git
    cd NTI-Final-Project
 
 2. **Install Composer dependencies:**
